@@ -19,12 +19,12 @@ Install the dependencies:
 npm install
 ```
 
-
 ## Features
 
 - **Validation**: data validation using joi
 - **Logging**: using rotating-file-stream and morgan
 - **Testing**: unit and integration tests using jest
+- **Error handling**: centralized error handling
 - **Environment variables**: using dotenv
 - **Security**: set security HTTP headers using helmet
 - **Santizing**: sanitize request data against xss
@@ -69,6 +69,16 @@ PORT=5000
 NODE_ENV=development
 
 ````
+
+## Project Structure
+
+```
+src\
+ |--config\         # Environment variables
+ |--middlewares\    # Custom express middlewares
+ |--utils\          # Utility classes and functions
+ |--app.js          # Express app
+```
 
 ## Linting
 
