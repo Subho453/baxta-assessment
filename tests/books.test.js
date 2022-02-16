@@ -42,3 +42,9 @@ describe("GET /api/books/all", () => {
     });
   });
 });
+
+describe("GET /api/books", () => {
+  test("should return 404", async () => {
+    await request(app).get("/api/books").send().expect(404);
+  });
+});
