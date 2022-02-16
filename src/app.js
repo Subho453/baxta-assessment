@@ -10,6 +10,7 @@ const rfs = require("rotating-file-stream"); // version 2.x
 const config = require("./config/config");
 const { errorConverter, errorHandler } = require("./middlewares/error");
 const ApiError = require("./utils/ApiError");
+const routes = require("./routes");
 
 const app = express();
 
@@ -47,6 +48,9 @@ app.use(
     stream: accessLogStream,
   })
 );
+
+// api routes
+app.use("/api", routes);
 
 // send back a 404 error for any unknown api request
 app.use((req, res, next) => {

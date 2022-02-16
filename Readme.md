@@ -74,6 +74,7 @@ NODE_ENV=development
 
 ```
 src\
+ |--assets\         # Assets used
  |--config\         # Environment variables
  |--middlewares\    # Custom express middlewares
  |--utils\          # Utility classes and functions
