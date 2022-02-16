@@ -21,7 +21,6 @@ npm install
 
 ## Features
 
-- **Validation**: data validation using joi
 - **Logging**: using rotating-file-stream and morgan
 - **Testing**: unit and integration tests using jest
 - **Error handling**: centralized error handling

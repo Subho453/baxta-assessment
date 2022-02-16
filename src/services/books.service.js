@@ -7,13 +7,11 @@ const getAllBooks = () => {
     const filterAuthor = authors.filter(
       (author) => author.books && author.books.includes(book.title)
     );
-    if (filterAuthor.length > 0) {
-      const sameAuthor = filterAuthor.reduce(
-        (a, b) => [...a, ...b.books].filter((title) => title !== book.title),
-        []
-      );
-      book.sameAuthor = sameAuthor;
-    }
+    const sameAuthor = filterAuthor.reduce(
+      (a, b) => [...a, ...b.books].filter((title) => title !== book.title),
+      []
+    );
+    book.sameAuthor = sameAuthor;
     acc.push(book);
     return acc;
   }, []);
