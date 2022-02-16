@@ -75,9 +75,13 @@ NODE_ENV=development
 src\
  |--assets\         # Assets used
  |--config\         # Environment variables
+ |--controllers\    # Route controllers (controller layer)
  |--middlewares\    # Custom express middlewares
+ |--routes\         # Routes
+ |--services\       # Business logic (service layer)
  |--utils\          # Utility classes and functions
  |--app.js          # Express app
+ |--tests\          # Unit and API testing
 ```
 
 ## Linting
