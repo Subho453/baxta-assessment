@@ -81,7 +81,7 @@ src\
  |--services\       # Business logic (service layer)
  |--utils\          # Utility classes and functions
  |--app.js          # Express app
- |--tests\          # Unit and API testing
+tests\              # Unit and API testing
 ```
 
 ## Linting
