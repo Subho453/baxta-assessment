@@ -1,22 +1,9 @@
 const httpStatus = require("http-status");
 const config = require("../config/config");
-const ApiError = require("../utils/ApiError");
-
-const errorConverter = (err, req, res, next) => {
-  let error = err;
-  if (!(error instanceof ApiError)) {
-    const statusCode = error.statusCode
-      ? httpStatus.BAD_REQUEST
-      : httpStatus.INTERNAL_SERVER_ERROR;
-    const message = error.message || httpStatus[statusCode];
-    error = new ApiError(statusCode, message, false, err.stack);
-  }
-  next(error);
-};
 
 const errorHandler = (err, req, res) => {
   let { statusCode, message } = err;
-  if (config.env === "production" && !err.isOperational) {
+  if (config.env === "production") {
     statusCode = httpStatus.INTERNAL_SERVER_ERROR;
     message = httpStatus[httpStatus.INTERNAL_SERVER_ERROR];
   }
@@ -34,6 +21,5 @@ const errorHandler = (err, req, res) => {
 };
 
 module.exports = {
-  errorConverter,
   errorHandler,
 };

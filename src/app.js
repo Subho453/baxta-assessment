@@ -8,7 +8,7 @@ const morgan = require("morgan");
 const path = require("path");
 const rfs = require("rotating-file-stream"); // version 2.x
 const config = require("./config/config");
-const { errorConverter, errorHandler } = require("./middlewares/error");
+const { errorHandler } = require("./middlewares/error");
 const ApiError = require("./utils/ApiError");
 const routes = require("./routes");
 
@@ -56,9 +56,6 @@ app.use("/api", routes);
 app.use((req, res, next) => {
   next(new ApiError(httpStatus.NOT_FOUND, "Not found"));
 });
-
-// convert error to ApiError, if needed
-app.use(errorConverter);
 
 // handle error
 app.use(errorHandler);
